@@ -13,7 +13,7 @@ var pusher = new Pusher({ // connect to pusher
   cluster: process.env.PUSHER_APP_CLUSTER, 
 });
 
-app.get('/', function(req, res){ // for testing if the server is running
+app.get('/api', function(req, res){ // for testing if the server is running
   res.send('all is well...');
 });
 
