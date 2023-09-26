@@ -13,7 +13,7 @@ var pusher = new Pusher({ // connect to pusher
   cluster: process.env.PUSHER_APP_CLUSTER, 
 });
 
-app.get('/api', function(req, res){ // for testing if the server is running
+app.get('/', function(req, res){ // for testing if the server is running
   res.send('all is well...');
 });
 
@@ -39,6 +39,11 @@ app.post('/pusher/auth', function(req, res) {
   var channel = req.body.channel_name;
   var auth = pusher.authenticate(socketId, channel);
   res.send(auth);
+});
+
+var port = process.env.PORT || 5000;
+app.listen(port, () => {
+  console.log(`Running on port ${port}.`);
 });
 
 module.exports = app;
