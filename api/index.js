@@ -18,7 +18,7 @@ app.get('/api', function(req, res){ // for testing if the server is running
 });
 
 // for authenticating users
-app.get("/pusher/auth", function(req, res) {
+app.get("/api/pusher/auth", function(req, res) {
   var query = req.query;
   var socketId = query.socket_id;
   var channel = query.channel_name;
@@ -34,7 +34,7 @@ app.get("/pusher/auth", function(req, res) {
   res.send(cb);
 });
 
-app.post('/pusher/auth', function(req, res) {
+app.post('/api/pusher/auth', function(req, res) {
   var socketId = req.body.socket_id;
   var channel = req.body.channel_name;
   var auth = pusher.authenticate(socketId, channel);
